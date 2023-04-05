@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Login API REST</string>
+    <string name="main_login">Login</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="main_type_login">Login</string>
+    <string name="main_type_register">Resgister</string>
+    <string name="main_error_server">Error en la peticion</string>
+    <string name="main_into">Ingresar</string>
+    <string name="description_img_profile">Image Profile</string>
+</resources>
