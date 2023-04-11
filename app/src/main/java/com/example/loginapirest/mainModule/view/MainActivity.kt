@@ -13,6 +13,7 @@ import com.example.loginapirest.common.utils.Constants
 import com.example.loginapirest.databinding.ActivityMainBinding
 import com.example.loginapirest.mainModule.viewModel.LoginApplication
 import org.json.JSONObject
+import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
 
@@ -69,8 +70,13 @@ class MainActivity : AppCompatActivity() {
 
         },{
             it.printStackTrace()
-            if (it.networkResponse.statusCode == 400){
-                updateUI(getString(R.string.main_error_server))
+            try {
+                if (it.networkResponse.statusCode == 400){
+                    updateUI(getString(R.string.main_error_server))
+                    mBinding.btnInto.visibility = View.GONE
+                }
+            }catch (e: NullPointerException){
+                updateUI(getString(R.string.main_error_internet))
                 mBinding.btnInto.visibility = View.GONE
             }
         }){

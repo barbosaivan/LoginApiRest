@@ -5,7 +5,9 @@
     <string name="hint_password">Password</string>
     <string name="main_type_login">Login</string>
     <string name="main_type_register">Resgister</string>
+    <string name="main_success">Success</string>
     <string name="main_error_server">Error en la peticion</string>
+    <string name="main_error_internet">Error en la conexion de internet</string>
     <string name="main_into">Ingresar</string>
     <string name="description_img_profile">Image Profile</string>
 </resources>

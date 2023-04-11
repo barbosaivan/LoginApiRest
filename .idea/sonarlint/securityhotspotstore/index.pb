@@ -1,25 +1,7 @@
 
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 |
 Lapp/src/androidTest/java/com/example/loginapirest/ExampleInstrumentedTest.kt,7\3\73a0b7eff55be9df00abed6d4a787d9fc7f7a416
-z
-Japp/src/main/java/com/example/loginapirest/mainModule/view/MainActivity.kt,3\d\3d3208b38f92a569491d742064a21b9a840facf0
-t
-Dapp/src/main/java/com/example/loginapirest/common/utils/Constants.kt,2\c\2cd65b0161d84e549f00bb47989e1561acc61cbc
-w
-Gapp/src/main/java/com/example/loginapirest/common/database/ReqResAPI.kt,f\8\f865e1b27320889ae7fdad776b4639fce6b05422
-ƒ
-Sapp/src/main/java/com/example/loginapirest/mainModule/viewModel/LoginApplication.kt,6\0\6098c8085ffc6ad0c50905dd46279f5754471452
-x
-Happ/src/main/java/com/example/loginapirest/userModule/model/UserModel.kt,5\c\5c4f1d6d9e913a95525fc292c5e3ff7f265d7cb6
-‚
-Rapp/src/main/java/com/example/loginapirest/userModule/view/adapters/UserAdapter.kt,d\3\d3a1775eec091a8caa75a1c62752771705107bc6
-{
-Kapp/src/main/java/com/example/loginapirest/userModule/view/UsersActivity.kt,4\b\4b542e66b7f686124996f4c14c2bdb422a005cd0
-€
-Papp/src/main/java/com/example/loginapirest/userModule/viewModel/UserViewModel.kt,b\2\b2b5f1670707a6dd9dfc77faede737c243dee773
-s
-Capp/src/main/java/com/example/loginapirest/common/entities/Users.kt,1\1\11988ec571bc8adf484c53e8d43b2f626a56e50e
-x
-Happ/src/main/java/com/example/loginapirest/mainModule/model/MainModel.kt,0\1\017421318fd2d95e3b022e89cf8d03b2ce01db07
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164

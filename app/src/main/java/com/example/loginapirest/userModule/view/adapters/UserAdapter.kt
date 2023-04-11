@@ -16,7 +16,7 @@ import com.example.loginapirest.databinding.ItemUserBinding
 * Create by Ivan Barbosa on 4/04/2023 at 6:30 p. m.
 * Linkedin: https://www.linkedin.com/in/ivanbarbosaortega/
 */
-class UserAdapter(private var users: List<Users>): RecyclerView.Adapter<UserAdapter.ViewHolder>() {
+class UserAdapter(private var users: MutableList<Users>): RecyclerView.Adapter<UserAdapter.ViewHolder>() {
 
     private lateinit var context: Context
 
@@ -42,12 +42,13 @@ class UserAdapter(private var users: List<Users>): RecyclerView.Adapter<UserAdap
         }
     }
 
-    fun setUsers(users: List<Users>){
+    fun setUsers(users: MutableList<Users>){
         this.users = users
         this.notifyDataSetChanged()
     }
 
-    inner class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    inner class ViewHolder(view: View): RecyclerView.
+    ViewHolder(view) {
 
         val binding = ItemUserBinding.bind(view)
 

@@ -1,19 +1,13 @@
 package com.example.loginapirest.userModule.view
 
-import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.volley.toolbox.JsonObjectRequest
-import com.example.loginapirest.R
-import com.example.loginapirest.common.entities.Users
-import com.example.loginapirest.common.utils.Constants
 import com.example.loginapirest.databinding.ActivityUsersBinding
-import com.example.loginapirest.mainModule.viewModel.LoginApplication
 import com.example.loginapirest.userModule.view.adapters.UserAdapter
+import com.example.loginapirest.userModule.viewModel.UserViewModel
 import com.google.android.material.snackbar.Snackbar
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 
 /* Project: Login API REST
 * From: com.example.loginapirest.mainModule.model
@@ -24,42 +18,25 @@ class UsersActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityUsersBinding
     private lateinit var userAdapter: UserAdapter
-    private var page = 2
+    private lateinit var userViewModel: UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityUsersBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        requestApi()
+        setUpViewModel()
         upRecycler()
     }
 
-    private fun requestApi() {
-        val urlBuilder = Uri.parse("${Constants.BASE_URL}${Constants.API_PATH_USERS}").buildUpon()
-        urlBuilder.appendQueryParameter(Constants.PAGE_USER, page.toString())
-        val url = urlBuilder.build().toString()
-
-        val jsonObjectRequest = object : JsonObjectRequest(Method.GET, url, null, { response ->
-            val listUsers: MutableList<Users>
-            val jsonList = response.getJSONArray("data").toString()
-            val data = object : TypeToken<MutableList<Users>>(){}.type
-            listUsers = Gson().fromJson(jsonList, data)
-            userAdapter.setUsers(listUsers)
-        },{
-            it.printStackTrace()
-            if (it.networkResponse.statusCode == 400){
-                Snackbar.make(binding.root, R.string.main_error_server, Snackbar.LENGTH_LONG).show()
-            }
-        }){
-            override fun getHeaders(): MutableMap<String, String> {
-                val params = HashMap<String, String>()
-                params["Content-Type"] = "application/json"
-                return params
-            }
+        private fun setUpViewModel() {
+        userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
+        userViewModel.getUsers().observe(this) {users->
+            userAdapter.setUsers(users)
         }
-
-        LoginApplication.reqResAPI.addToRequestQueue(jsonObjectRequest)
+        userViewModel.getSnackbarMsg().observe(this) {
+            Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
+        }
     }
 
     private fun upRecycler() {
