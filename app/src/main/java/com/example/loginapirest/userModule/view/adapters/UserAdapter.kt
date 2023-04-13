@@ -1,6 +1,8 @@
 package com.example.loginapirest.userModule.view.adapters
 
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,6 +46,11 @@ class UserAdapter(private var users: MutableList<Users>): RecyclerView.Adapter<U
 
     fun setUsers(users: MutableList<Users>){
         this.users = users
+        this.notifyDataSetChanged()
+    }
+
+    fun setAddUsers(users: MutableList<Users>){
+        this.users.addAll(users)
         this.notifyDataSetChanged()
     }
 

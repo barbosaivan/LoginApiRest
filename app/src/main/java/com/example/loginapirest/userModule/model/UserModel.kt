@@ -16,7 +16,7 @@ import com.google.gson.reflect.TypeToken
 */
 class UserModel {
 
-    fun requestApi(page: Int, callback: (MutableList<Users>, Int) -> Unit) {
+    fun requestApi(page: Int, callback: (MutableList<Users>, Int, Boolean) -> Unit) {
         val urlBuilder = Uri.parse("${Constants.BASE_URL}${Constants.API_PATH_USERS}").buildUpon()
         urlBuilder.appendQueryParameter(Constants.PAGE_USER, page.toString())
         val url = urlBuilder.build().toString()
@@ -26,15 +26,17 @@ class UserModel {
             val jsonList = response.getJSONArray("data").toString()
             val data = object : TypeToken<MutableList<Users>>(){}.type
             listUsers = Gson().fromJson(jsonList, data)
-            callback(listUsers, R.string.main_success)
+            if (listUsers.isNotEmpty()){
+                callback(listUsers, R.string.main_success, true)
+            }
         },{
             try {
                 it.printStackTrace()
                 if (it.networkResponse.statusCode == 400){
-                    callback(listUsers, R.string.main_error_server)
+                    callback(listUsers, R.string.main_error_server, true)
                 }
             }catch (e: NullPointerException){
-                callback(listUsers, R.string.main_error_internet)
+                callback(listUsers, R.string.main_error_internet,true)
             }
         }){
             override fun getHeaders(): MutableMap<String, String> {
