@@ -21,5 +21,7 @@ object Constants {
     const val PAGE_USER = "page"
 
     const val ERROR_VALUE = "fail"
+    const val ERROR_SERVER = "main_error_server"
+    const val ERROR_INTERNET = "main_error_internet"
 
 }

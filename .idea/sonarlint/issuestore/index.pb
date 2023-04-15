@@ -9,17 +9,3 @@ w
 Gapp/src/main/java/com/example/loginapirest/common/database/ReqResAPI.kt,f\8\f865e1b27320889ae7fdad776b4639fce6b05422
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
-ƒ
-Sapp/src/main/java/com/example/loginapirest/mainModule/viewModel/LoginApplication.kt,6\0\6098c8085ffc6ad0c50905dd46279f5754471452
-t
-Dapp/src/main/java/com/example/loginapirest/common/utils/Constants.kt,2\c\2cd65b0161d84e549f00bb47989e1561acc61cbc
-z
-Japp/src/main/java/com/example/loginapirest/mainModule/view/MainActivity.kt,3\d\3d3208b38f92a569491d742064a21b9a840facf0
-{
-Kapp/src/main/java/com/example/loginapirest/userModule/view/UsersActivity.kt,4\b\4b542e66b7f686124996f4c14c2bdb422a005cd0
-‚
-Rapp/src/main/java/com/example/loginapirest/userModule/view/adapters/UserAdapter.kt,d\3\d3a1775eec091a8caa75a1c62752771705107bc6
-x
-Happ/src/main/java/com/example/loginapirest/userModule/model/UserModel.kt,5\c\5c4f1d6d9e913a95525fc292c5e3ff7f265d7cb6
-€
-Papp/src/main/java/com/example/loginapirest/userModule/viewModel/UserViewModel.kt,b\2\b2b5f1670707a6dd9dfc77faede737c243dee773

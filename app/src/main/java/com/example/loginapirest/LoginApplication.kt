@@ -1,4 +1,4 @@
-package com.example.loginapirest.mainModule.viewModel
+package com.example.loginapirest
 
 import android.app.Application
 import com.example.loginapirest.common.database.ReqResAPI

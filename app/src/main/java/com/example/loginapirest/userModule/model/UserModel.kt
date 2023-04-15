@@ -5,7 +5,7 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.example.loginapirest.R
 import com.example.loginapirest.common.entities.Users
 import com.example.loginapirest.common.utils.Constants
-import com.example.loginapirest.mainModule.viewModel.LoginApplication
+import com.example.loginapirest.LoginApplication
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -24,21 +24,21 @@ class UserModel {
 
         val jsonObjectRequest = object : JsonObjectRequest(Method.GET, url, null, { response ->
             val jsonList = response.getJSONArray("data").toString()
-            val data = object : TypeToken<MutableList<Users>>(){}.type
+            val data = object : TypeToken<MutableList<Users>>() {}.type
             listUsers = Gson().fromJson(jsonList, data)
-            if (listUsers.isNotEmpty()){
+            if (listUsers.isNotEmpty()) {
                 callback(listUsers, R.string.main_success, true)
             }
-        },{
+        }, {
             try {
                 it.printStackTrace()
-                if (it.networkResponse.statusCode == 400){
+                if (it.networkResponse.statusCode == 400) {
                     callback(listUsers, R.string.main_error_server, true)
                 }
-            }catch (e: NullPointerException){
-                callback(listUsers, R.string.main_error_internet,true)
+            } catch (e: NullPointerException) {
+                callback(listUsers, R.string.main_error_internet, true)
             }
-        }){
+        }) {
             override fun getHeaders(): MutableMap<String, String> {
                 val params = HashMap<String, String>()
                 params["Content-Type"] = "application/json"
